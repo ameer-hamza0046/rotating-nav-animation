@@ -1,8 +1,14 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap");
+
+:root {
+  --circle-diameter: 200px;
+}
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  text-align: justify;
 }
 
 body {
@@ -14,21 +20,21 @@ body {
   position: fixed;
   top: 0;
   left: 0;
-  transition: transform 1s ease-in-out 0s;
+  transition: transform 0.8s ease-in-out 0s;
 }
+
 
 .circle-container.rotated {
   transform: rotate(-90deg);
 }
 
 .circle {
-  height: 200px;
-  width: 200px;
+  height: var(--circle-diameter);
+  width: var(--circle-diameter);
   background-color: pink;
   position: inherit;
-  left: -100px;
-  top: -100px;
-  z-index: -1;
+  left: calc(-1 / 2 * var(--circle-diameter));
+  top: calc(-1 / 2 * var(--circle-diameter));
   border-radius: 50%;
 }
 
@@ -41,8 +47,8 @@ body {
 
 #open-nav {
   position: inherit;
-  left: 50px;
-  top: 50px;
+  left: calc(1 / 4 * var(--circle-diameter));
+  top: calc(1 / 4 * var(--circle-diameter));
   transform: translate(-70%, -70%);
   background: url('./images/menu.png');
   background-size: cover;
@@ -50,11 +56,64 @@ body {
 
 #close-nav {
   position: inherit;
-  left: -50px;
-  top: 50px;
+  left: calc(-1 / 4 * var(--circle-diameter));
+  top: calc(1 / 4 * var(--circle-diameter));
   transform: translate(-20%, -60%);
   background: url('./images/close.png');
   background-size: cover;
 }
 
+.container {
+  width: 60%;
+  margin: auto;
+  margin-top: calc(var(--circle-diameter) / 2);
+  transition: transform 0.8s ease-in-out 0s;
+  transform-origin: top left;
+}
 
+.container.rotated {
+  z-index: -1;
+  transform: rotate(-40deg);
+}
+
+.container > p {
+  margin: 1em 0;
+}
+
+.container > h3 {
+  margin: 1em 0;
+}
+
+.container > img {
+  width: 700px;
+  max-width: 100%;
+}
+
+nav {
+  position: fixed;
+  top: 500px;
+  left: -100px;
+  transition: left 1s ease-out 0.5s;
+}
+
+nav.rotated {
+  left: 50px;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+}
+
+
+nav li {
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+@media screen and (max-width: 1120px) {
+  .container {
+    padding-top: calc(var(--circle-diameter) / 2)
+  }
+}
