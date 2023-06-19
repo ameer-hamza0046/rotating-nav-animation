@@ -1,0 +1,60 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  overflow-x: hidden;
+  font-family: "Poppins", sans-serif;
+}
+
+.circle-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  transition: transform 1s ease-in-out 0s;
+}
+
+.circle-container.rotated {
+  transform: rotate(-90deg);
+}
+
+.circle {
+  height: 200px;
+  width: 200px;
+  background-color: pink;
+  position: inherit;
+  left: -100px;
+  top: -100px;
+  z-index: -1;
+  border-radius: 50%;
+}
+
+.circle-container button {
+  height: 30px;
+  width: 30px;
+  border: none;
+  cursor: pointer;
+}
+
+#open-nav {
+  position: inherit;
+  left: 50px;
+  top: 50px;
+  transform: translate(-70%, -70%);
+  background: url('./images/menu.png');
+  background-size: cover;
+}
+
+#close-nav {
+  position: inherit;
+  left: -50px;
+  top: 50px;
+  transform: translate(-20%, -60%);
+  background: url('./images/close.png');
+  background-size: cover;
+}
+
+
